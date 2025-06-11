@@ -33,7 +33,7 @@ Make sure to run "uv run mcp isntall main.py"and restart Claude Desktop, after y
 
 # Currently Available Tools:
 
-### Start_Module
+### start_module
 - Inputs: 
 - Outputs: error out,Wait for Event Sync?,Scripting Server Broadcast Events,Module Was Already Running?,Module Name
 - Description: Call this function first if you want to interact with LabVIEW. It will start the labview server that you can use to do actions in LabVIEW. You can use "Stop Module" to stop the server again. Make sure to call thsi function before any other LabVIEW specific functions.
@@ -1253,7 +1253,7 @@ When creating a control or constant you can pass a value to be written to that e
 - Outputs: error out
 - Description: Runs a VI specified by VI ID and brings the frontpanel to foreground if open_frontpanel is set to True.
 
-### Stop_Module
+### stop_module
 - Inputs: 
 - Outputs: error out
 - Description: Call this tool to stop the labview server. You must use "start module" to start it again to do actions in LabVIEW. Stopping the server will delete all temporary data, so after restarting it you cannot access the objects anymore.
