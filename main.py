@@ -47,7 +47,7 @@ def start_module() -> str:
     # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
-        ("Show Main VI Diagram on Init (F)","error in","error out","Wait for Event Sync?","Scripting Server Broadcast Events","Module Was Already Running?","Module Name" )    # Control/Indicator Names
+        ("Show Main VI Diagram on Init (F)","error in","error out", "Wait for Event Sync?", "Scripting Server Broadcast Events", "Module Was Already Running?", "Module Name" )    # Control/Indicator Names
     )
 
     param_values = VARIANT(
@@ -81,7 +81,7 @@ def new_vi() -> str:
     # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
-        ("wait for reply (T)","error in","error out","timed out?","result","vi_id" )    # Control/Indicator Names
+        ("wait for reply (T)","error in","error out", "timed out?", "result", "vi_id" )    # Control/Indicator Names
     )
 
     param_values = VARIANT(
@@ -1290,7 +1290,7 @@ parameter name: "vi_reference" - parameter description: ""
     # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
-        ("wait for reply (T)","error in","object_name","vi_reference","error out","timed out?","result","object_id" )    # Control/Indicator Names
+        ("wait for reply (T)","error in","object_name","vi_reference","error out", "timed out?", "result", "object_id" )    # Control/Indicator Names
     )
 
     param_values = VARIANT(
@@ -1329,7 +1329,7 @@ parameter name: "vi_reference" - parameter description: ""
     # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
-        ("to_object_terminal_index","from_object_terminal_index","wait for reply (T)","to_object_reference","error in","from_object_reference","vi_reference","error out","timed out?","result" )    # Control/Indicator Names
+        ("to_object_terminal_index","from_object_terminal_index","wait for reply (T)","to_object_reference","error in","from_object_reference","vi_reference","error out", "timed out?", "result" )    # Control/Indicator Names
     )
 
     param_values = VARIANT(
@@ -1365,7 +1365,7 @@ The Functions Inputs are: parameter name: "object_id" - parameter description: "
     # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
-        ("wait for reply (T)","error in","object_id","error out","timed out?","result" )    # Control/Indicator Names
+        ("wait for reply (T)","error in","object_id","error out", "timed out?", "result" )    # Control/Indicator Names
     )
 
     param_values = VARIANT(
@@ -1401,7 +1401,7 @@ The Functions Inputs are: parameter name: "vi_reference" - parameter description
     # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
-        ("wait for reply (T)","error in","vi_reference","error out","timed out?","result" )    # Control/Indicator Names
+        ("wait for reply (T)","error in","vi_reference","error out", "timed out?", "result" )    # Control/Indicator Names
     )
 
     param_values = VARIANT(
@@ -1437,7 +1437,7 @@ The Functions Inputs are: parameter name: "vi_reference" - parameter description
     # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
-        ("wait for reply (T)","error in","vi_reference","error out","timed out?","result" )    # Control/Indicator Names
+        ("wait for reply (T)","error in","vi_reference","error out", "timed out?", "result" )    # Control/Indicator Names
     )
 
     param_values = VARIANT(
@@ -1476,7 +1476,7 @@ parameter name: "object_id" - parameter description: ""
     # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
-        ("wait for reply (T)","constant","error in","terminal_index","object_id","error out","timed out?","created_object_id" )    # Control/Indicator Names
+        ("wait for reply (T)","constant","error in","terminal_index","object_id","error out", "timed out?", "created_object_id" )    # Control/Indicator Names
     )
 
     param_values = VARIANT(
@@ -1513,12 +1513,172 @@ parameter name: "vi_id" - parameter description: ""
     # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
-        ("wait for reply (T)","error in","open_frontpanel","vi_id","error out","timed out?" )    # Control/Indicator Names
+        ("wait for reply (T)","error in","open_frontpanel","vi_id","error out", "timed out?" )    # Control/Indicator Names
     )
 
     param_values = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (True, "", open_frontpanel, vi_id, "", "")
+    )
+    # -------------------------------------------------------------------
+
+    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
+    vi.Call2(param_names, param_values,
+            False,   # open FP?
+            False,   # close FP after call?
+            False,   # suspend on call?
+            False)   # bring LabVIEW to front?
+    
+    return param_values
+
+
+@mcp.tool()
+def clear_selection_list(vi_id: int) -> str:
+    """
+    Clears all elements in the selection list. Use this before making a new selection.
+
+_____
+Created using DQMH Framework: Event Scripter 7.1.0.1503.The Functions Inputs are: parameter name: "vi_id" - parameter description: ""
+
+    """
+    lv_app  = get_labview()
+    vi_path = r"G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\clear_selection_list.vi"
+    vi      = lv_app.GetVIReference(vi_path, "", False, 0)
+
+    # Make sure win32com knows Call2 is a method
+    vi._FlagAsMethod("Call2")
+
+    # -------- parameter containers – one INPUT, one OUTPUT -------------
+    param_names  = VARIANT(
+        pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
+        ("wait for reply (T)","error in","vi_id","error out", "timed out?" )    # Control/Indicator Names
+    )
+
+    param_values = VARIANT(
+        pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
+        (True, "", vi_id, "", "")
+    )
+    # -------------------------------------------------------------------
+
+    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
+    vi.Call2(param_names, param_values,
+            False,   # open FP?
+            False,   # close FP after call?
+            False,   # suspend on call?
+            False)   # bring LabVIEW to front?
+    
+    return param_values
+
+
+@mcp.tool()
+def remove_from_selection(object_id: int,vi_id: int) -> str:
+    """
+    Removes the object specified by object_id from the current selection list and returns the resulting new list.
+
+_____
+Created using DQMH Framework: Event Scripter 7.1.0.1503.The Functions Inputs are: parameter name: "object_id" - parameter description: ""
+parameter name: "vi_id" - parameter description: ""
+
+    """
+    lv_app  = get_labview()
+    vi_path = r"G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\remove_from_selection.vi"
+    vi      = lv_app.GetVIReference(vi_path, "", False, 0)
+
+    # Make sure win32com knows Call2 is a method
+    vi._FlagAsMethod("Call2")
+
+    # -------- parameter containers – one INPUT, one OUTPUT -------------
+    param_names  = VARIANT(
+        pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
+        ("wait for reply (T)","error in","object_id","vi_id","error out", "timed out?" )    # Control/Indicator Names
+    )
+
+    param_values = VARIANT(
+        pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
+        (True, "", object_id, vi_id, "", "")
+    )
+    # -------------------------------------------------------------------
+
+    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
+    vi.Call2(param_names, param_values,
+            False,   # open FP?
+            False,   # close FP after call?
+            False,   # suspend on call?
+            False)   # bring LabVIEW to front?
+    
+    return param_values
+
+
+@mcp.tool()
+def add_to_selection(object_id: int,vi_id: int) -> str:
+    """
+    Adds an object specified by object_id to the selection list. Use this to copy & paste or enclose a selection. Use clear_selection or remove_from_selection to remove the object from the list. Make sure to check if the selection list looks good.
+
+_____
+Created using DQMH Framework: Event Scripter 7.1.0.1503.The Functions Inputs are: parameter name: "object_id" - parameter description: ""
+parameter name: "vi_id" - parameter description: ""
+
+    """
+    lv_app  = get_labview()
+    vi_path = r"G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\add_to_selection.vi"
+    vi      = lv_app.GetVIReference(vi_path, "", False, 0)
+
+    # Make sure win32com knows Call2 is a method
+    vi._FlagAsMethod("Call2")
+
+    # -------- parameter containers – one INPUT, one OUTPUT -------------
+    param_names  = VARIANT(
+        pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
+        ("wait for reply (T)","error in","object_id","vi_id","error out", "timed out?" )    # Control/Indicator Names
+    )
+
+    param_values = VARIANT(
+        pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
+        (True, "", object_id, vi_id, "", "")
+    )
+    # -------------------------------------------------------------------
+
+    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
+    vi.Call2(param_names, param_values,
+            False,   # open FP?
+            False,   # close FP after call?
+            False,   # suspend on call?
+            False)   # bring LabVIEW to front?
+    
+    return param_values
+
+
+@mcp.tool()
+def enclose_selection(structure_type: str,vi_id: int) -> str:
+    """
+    Use this function to efficiently generate Loops or other structures around existing code. This is the quickest way to create loops including tunnles and wiring, wire the objects first, then create a loop around them, tunnles will be there automatically. Use the add_to_selection, remove_from_selection and clear_selection_list tools to change the current selection, connect_objects to connect them, then call this tool to create a structure around them.
+Allowed values for structure_type are:
+While Loop #1
+While Loop #2
+For Loop
+Case Structure
+Sequence Structure
+Event Structure
+The Functions Inputs are: parameter name: "structure_type" - parameter description: ""
+parameter name: "vi_id" - parameter description: ""
+
+    """
+    lv_app  = get_labview()
+    vi_path = r"G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\enclose_selection.vi"
+    vi      = lv_app.GetVIReference(vi_path, "", False, 0)
+
+    # Make sure win32com knows Call2 is a method
+    vi._FlagAsMethod("Call2")
+
+    # -------- parameter containers – one INPUT, one OUTPUT -------------
+    param_names  = VARIANT(
+        pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
+        ("wait for reply (T)","error in","structure_type","vi_id","error out", "timed out?", "object_id" )    # Control/Indicator Names
+    )
+
+    param_values = VARIANT(
+        pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
+        (True, "", structure_type, vi_id, "", "", 0)
     )
     # -------------------------------------------------------------------
 

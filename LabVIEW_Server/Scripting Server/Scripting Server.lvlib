@@ -34,6 +34,14 @@
 				<Item Name="create_control (Reply Payload)--cluster.ctl" Type="VI" URL="../create_control (Reply Payload)--cluster.ctl"/>
 				<Item Name="Run VI Argument--cluster.ctl" Type="VI" URL="../Run VI Argument--cluster.ctl"/>
 				<Item Name="Run VI (Reply Payload)--cluster.ctl" Type="VI" URL="../Run VI (Reply Payload)--cluster.ctl"/>
+				<Item Name="add_to_selection Argument--cluster.ctl" Type="VI" URL="../add_to_selection Argument--cluster.ctl"/>
+				<Item Name="add_to_selection (Reply Payload)--cluster.ctl" Type="VI" URL="../add_to_selection (Reply Payload)--cluster.ctl"/>
+				<Item Name="clear_selection_list Argument--cluster.ctl" Type="VI" URL="../clear_selection_list Argument--cluster.ctl"/>
+				<Item Name="clear_selection_list (Reply Payload)--cluster.ctl" Type="VI" URL="../clear_selection_list (Reply Payload)--cluster.ctl"/>
+				<Item Name="remove_from_selection Argument--cluster.ctl" Type="VI" URL="../remove_from_selection Argument--cluster.ctl"/>
+				<Item Name="remove_from_selection (Reply Payload)--cluster.ctl" Type="VI" URL="../remove_from_selection (Reply Payload)--cluster.ctl"/>
+				<Item Name="enclose_selection Argument--cluster.ctl" Type="VI" URL="../enclose_selection Argument--cluster.ctl"/>
+				<Item Name="enclose_selection (Reply Payload)--cluster.ctl" Type="VI" URL="../enclose_selection (Reply Payload)--cluster.ctl"/>
 			</Item>
 			<Item Name="Broadcast" Type="Folder">
 				<Item Name="Did Init Argument--cluster.ctl" Type="VI" URL="../Did Init Argument--cluster.ctl"/>
@@ -51,6 +59,10 @@
 				<Item Name="cleanup_vi.vi" Type="VI" URL="../cleanup_vi.vi"/>
 				<Item Name="create_control.vi" Type="VI" URL="../create_control.vi"/>
 				<Item Name="run_vi.vi" Type="VI" URL="../run_vi.vi"/>
+				<Item Name="clear_selection_list.vi" Type="VI" URL="../clear_selection_list.vi"/>
+				<Item Name="remove_from_selection.vi" Type="VI" URL="../remove_from_selection.vi"/>
+				<Item Name="add_to_selection.vi" Type="VI" URL="../add_to_selection.vi"/>
+				<Item Name="enclose_selection.vi" Type="VI" URL="../enclose_selection.vi"/>
 			</Item>
 			<Item Name="Show Panel.vi" Type="VI" URL="../Show Panel.vi"/>
 			<Item Name="Hide Panel.vi" Type="VI" URL="../Hide Panel.vi"/>
@@ -109,15 +121,23 @@
 		<Item Name="add vi object.vi" Type="VI" URL="../add vi object.vi"/>
 		<Item Name="clean up vis blockdiagram.vi" Type="VI" URL="../clean up vis blockdiagram.vi"/>
 		<Item Name="Create New VI.vi" Type="VI" URL="../Create New VI.vi"/>
+		<Item Name="Do Add To Selection.vi" Type="VI" URL="../Do Add To Selection.vi"/>
+		<Item Name="Do Clear Selection List.vi" Type="VI" URL="../Do Clear Selection List.vi"/>
 		<Item Name="Do Create Control.vi" Type="VI" URL="../Do Create Control.vi"/>
+		<Item Name="Do Enclose Selection.vi" Type="VI" URL="../Do Enclose Selection.vi"/>
+		<Item Name="Do Remove From Selection.vi" Type="VI" URL="../Do Remove From Selection.vi"/>
 		<Item Name="Do Run VI.vi" Type="VI" URL="../Do Run VI.vi"/>
 		<Item Name="Extract Input Terminals.vi" Type="VI" URL="../Extract Input Terminals.vi"/>
 		<Item Name="Extract Output Terminals.vi" Type="VI" URL="../Extract Output Terminals.vi"/>
 		<Item Name="generate vi error list.vi" Type="VI" URL="../generate vi error list.vi"/>
+		<Item Name="Get Control by ID.vi" Type="VI" URL="../Get Control by ID.vi"/>
 		<Item Name="Get Datatype.vi" Type="VI" URL="../Get Datatype.vi"/>
+		<Item Name="Get GObject by ID.vi" Type="VI" URL="../Get GObject by ID.vi"/>
 		<Item Name="Get Node by ID.vi" Type="VI" URL="../Get Node by ID.vi"/>
 		<Item Name="get terminal info.vi" Type="VI" URL="../get terminal info.vi"/>
+		<Item Name="Get Terminals.vi" Type="VI" URL="../Get Terminals.vi"/>
 		<Item Name="Get VI By ID.vi" Type="VI" URL="../Get VI By ID.vi"/>
+		<Item Name="Is Same Object.vi" Type="VI" URL="../Is Same Object.vi"/>
 		<Item Name="Wire Two Objects.vi" Type="VI" URL="../Wire Two Objects.vi"/>
 	</Item>
 	<Item Name="Module Sync" Type="Folder">
@@ -137,8 +157,4 @@
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Get Python Code.vi" Type="VI" URL="../Get Python Code.vi"/>
-	<Item Name="Get Terminals.vi" Type="VI" URL="../Get Terminals.vi"/>
-	<Item Name="Get Control by ID.vi" Type="VI" URL="../Get Control by ID.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
 </Library>
