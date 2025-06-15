@@ -101,7 +101,7 @@ def new_vi() -> str:
 
 
 @mcp.tool()
-def add_object(object_name: str,vi_reference: int) -> str:
+def add_object(position_y: int,object_name: str,vi_reference: int,position_x: int) -> str:
     """
     Adds an object to the block diagram or frontpanel of the referenced vi. Get a VI reference from "New VI".
 Allowed object names are:
@@ -1276,8 +1276,10 @@ Write Variable with Timeout
 XY Graph (classic)
 XY Graph (modern)
 Y-th Root of X
-The Functions Inputs are: parameter name: "object_name" - parameter description: ""
+The Functions Inputs are: parameter name: "position_y" - parameter description: ""
+parameter name: "object_name" - parameter description: ""
 parameter name: "vi_reference" - parameter description: ""
+parameter name: "position_x" - parameter description: ""
 
     """
     lv_app  = get_labview()
@@ -1290,12 +1292,12 @@ parameter name: "vi_reference" - parameter description: ""
     # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
-        ("wait for reply (T)","error in","object_name","vi_reference","error out", "timed out?", "result", "object_id" )    # Control/Indicator Names
+        ("wait for reply (T)","position_y","error in","object_name","vi_reference","position_x","error out", "timed out?", "result", "object_id" )    # Control/Indicator Names
     )
 
     param_values = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
-        (True, "", object_name, vi_reference, "", "", "", 0)
+        (True, position_y, "", object_name, vi_reference, position_x, "", "", "", 0)
     )
     # -------------------------------------------------------------------
 
@@ -1312,7 +1314,7 @@ parameter name: "vi_reference" - parameter description: ""
 @mcp.tool()
 def connect_objects(to_object_terminal_index: int,from_object_terminal_index: int,to_object_reference: int,from_object_reference: int,vi_reference: int) -> str:
     """
-    Connects two terminals of two objects with a wire on the block diagram of a labview vi. To get a new VI use "new vi" to add objects to a vi use "add object".The Functions Inputs are: parameter name: "to_object_terminal_index" - parameter description: ""
+    Connects two terminals of two objects with a wire on the block diagram of a labview vi. To get a new VI use "new vi" to add objects to a vi use "add object". If a frontpanel control/indicator reference is passed to this function, it will automatically use the corresponding terminal on the block diagram for wiring.The Functions Inputs are: parameter name: "to_object_terminal_index" - parameter description: ""
 parameter name: "from_object_terminal_index" - parameter description: ""
 parameter name: "to_object_reference" - parameter description: ""
 parameter name: "from_object_reference" - parameter description: ""
@@ -1635,6 +1637,45 @@ parameter name: "vi_id" - parameter description: ""
     param_values = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (True, "", object_id, vi_id, "", "")
+    )
+    # -------------------------------------------------------------------
+
+    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
+    vi.Call2(param_names, param_values,
+            False,   # open FP?
+            False,   # close FP after call?
+            False,   # suspend on call?
+            False)   # bring LabVIEW to front?
+    
+    return param_values
+
+
+@mcp.tool()
+def rename_object(label_visible: bool,new_label_name: str) -> str:
+    """
+    Use this to change an objects Label.Text property. Usually used for frontpanel objects. Use the label_visible True/False to decide if the label is displayed afterwards.
+
+_____
+Created using DQMH Framework: Event Scripter 7.1.0.1503.The Functions Inputs are: parameter name: "label_visible" - parameter description: ""
+parameter name: "new_label_name" - parameter description: ""
+
+    """
+    lv_app  = get_labview()
+    vi_path = r"G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\rename_object.vi"
+    vi      = lv_app.GetVIReference(vi_path, "", False, 0)
+
+    # Make sure win32com knows Call2 is a method
+    vi._FlagAsMethod("Call2")
+
+    # -------- parameter containers – one INPUT, one OUTPUT -------------
+    param_names  = VARIANT(
+        pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
+        ("wait for reply (T)","error in","label_visible","new_label_name","error out", "timed out?" )    # Control/Indicator Names
+    )
+
+    param_values = VARIANT(
+        pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
+        (True, "", label_visible, new_label_name, "", "")
     )
     # -------------------------------------------------------------------
 

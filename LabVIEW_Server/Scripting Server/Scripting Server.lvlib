@@ -42,6 +42,8 @@
 				<Item Name="remove_from_selection (Reply Payload)--cluster.ctl" Type="VI" URL="../remove_from_selection (Reply Payload)--cluster.ctl"/>
 				<Item Name="enclose_selection Argument--cluster.ctl" Type="VI" URL="../enclose_selection Argument--cluster.ctl"/>
 				<Item Name="enclose_selection (Reply Payload)--cluster.ctl" Type="VI" URL="../enclose_selection (Reply Payload)--cluster.ctl"/>
+				<Item Name="rename_object Argument--cluster.ctl" Type="VI" URL="../rename_object Argument--cluster.ctl"/>
+				<Item Name="rename_object (Reply Payload)--cluster.ctl" Type="VI" URL="../rename_object (Reply Payload)--cluster.ctl"/>
 			</Item>
 			<Item Name="Broadcast" Type="Folder">
 				<Item Name="Did Init Argument--cluster.ctl" Type="VI" URL="../Did Init Argument--cluster.ctl"/>
@@ -62,6 +64,7 @@
 				<Item Name="clear_selection_list.vi" Type="VI" URL="../clear_selection_list.vi"/>
 				<Item Name="remove_from_selection.vi" Type="VI" URL="../remove_from_selection.vi"/>
 				<Item Name="add_to_selection.vi" Type="VI" URL="../add_to_selection.vi"/>
+				<Item Name="rename_object.vi" Type="VI" URL="../rename_object.vi"/>
 				<Item Name="enclose_selection.vi" Type="VI" URL="../enclose_selection.vi"/>
 			</Item>
 			<Item Name="Show Panel.vi" Type="VI" URL="../Show Panel.vi"/>
@@ -157,4 +160,5 @@
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Get Python Code.vi" Type="VI" URL="../Get Python Code.vi"/>
+	<Item Name="Do Rename Object.vi" Type="VI" URL="../Do Rename Object.vi"/>
 </Library>
