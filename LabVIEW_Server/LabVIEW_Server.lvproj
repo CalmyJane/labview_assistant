@@ -21,6 +21,7 @@
 		</Item>
 		<Item Name="Datatypes.ctl" Type="VI" URL="../Scripting Server/Datatypes.ctl"/>
 		<Item Name="Test_EncloseSelection.vi" Type="VI" URL="../Scripting Server/Test_EncloseSelection.vi"/>
+		<Item Name="Test_Rename_And_Set_Value.vi" Type="VI" URL="../Scripting Server/Test_Rename_And_Set_Value.vi"/>
 		<Item Name="Dependencies" Type="Dependencies"/>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>

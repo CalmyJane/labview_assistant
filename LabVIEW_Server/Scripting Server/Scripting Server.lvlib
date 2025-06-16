@@ -44,6 +44,8 @@
 				<Item Name="enclose_selection (Reply Payload)--cluster.ctl" Type="VI" URL="../enclose_selection (Reply Payload)--cluster.ctl"/>
 				<Item Name="rename_object Argument--cluster.ctl" Type="VI" URL="../rename_object Argument--cluster.ctl"/>
 				<Item Name="rename_object (Reply Payload)--cluster.ctl" Type="VI" URL="../rename_object (Reply Payload)--cluster.ctl"/>
+				<Item Name="set_value Argument--cluster.ctl" Type="VI" URL="../set_value Argument--cluster.ctl"/>
+				<Item Name="set_value (Reply Payload)--cluster.ctl" Type="VI" URL="../set_value (Reply Payload)--cluster.ctl"/>
 			</Item>
 			<Item Name="Broadcast" Type="Folder">
 				<Item Name="Did Init Argument--cluster.ctl" Type="VI" URL="../Did Init Argument--cluster.ctl"/>
@@ -72,6 +74,7 @@
 			<Item Name="Stop Module.vi" Type="VI" URL="../Stop Module.vi"/>
 			<Item Name="Get Module Execution Status.vi" Type="VI" URL="../Get Module Execution Status.vi"/>
 			<Item Name="Show Diagram.vi" Type="VI" URL="../Show Diagram.vi"/>
+			<Item Name="set_value.vi" Type="VI" URL="../set_value.vi"/>
 		</Item>
 		<Item Name="Start Module.vi" Type="VI" URL="../Start Module.vi"/>
 		<Item Name="Synchronize Module Events.vi" Type="VI" URL="../Synchronize Module Events.vi"/>
@@ -129,7 +132,9 @@
 		<Item Name="Do Create Control.vi" Type="VI" URL="../Do Create Control.vi"/>
 		<Item Name="Do Enclose Selection.vi" Type="VI" URL="../Do Enclose Selection.vi"/>
 		<Item Name="Do Remove From Selection.vi" Type="VI" URL="../Do Remove From Selection.vi"/>
+		<Item Name="Do Rename Object.vi" Type="VI" URL="../Do Rename Object.vi"/>
 		<Item Name="Do Run VI.vi" Type="VI" URL="../Do Run VI.vi"/>
+		<Item Name="Do Set Value.vi" Type="VI" URL="../Do Set Value.vi"/>
 		<Item Name="Extract Input Terminals.vi" Type="VI" URL="../Extract Input Terminals.vi"/>
 		<Item Name="Extract Output Terminals.vi" Type="VI" URL="../Extract Output Terminals.vi"/>
 		<Item Name="generate vi error list.vi" Type="VI" URL="../generate vi error list.vi"/>
@@ -160,5 +165,4 @@
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Get Python Code.vi" Type="VI" URL="../Get Python Code.vi"/>
-	<Item Name="Do Rename Object.vi" Type="VI" URL="../Do Rename Object.vi"/>
 </Library>
