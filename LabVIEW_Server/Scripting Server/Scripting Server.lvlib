@@ -48,6 +48,8 @@
 				<Item Name="set_value (Reply Payload)--cluster.ctl" Type="VI" URL="../set_value (Reply Payload)--cluster.ctl"/>
 				<Item Name="delete_object Argument--cluster.ctl" Type="VI" URL="../delete_object Argument--cluster.ctl"/>
 				<Item Name="delete_object (Reply Payload)--cluster.ctl" Type="VI" URL="../delete_object (Reply Payload)--cluster.ctl"/>
+				<Item Name="save_vi Argument--cluster.ctl" Type="VI" URL="../save_vi Argument--cluster.ctl"/>
+				<Item Name="save_vi (Reply Payload)--cluster.ctl" Type="VI" URL="../save_vi (Reply Payload)--cluster.ctl"/>
 			</Item>
 			<Item Name="Broadcast" Type="Folder">
 				<Item Name="Did Init Argument--cluster.ctl" Type="VI" URL="../Did Init Argument--cluster.ctl"/>
@@ -71,6 +73,7 @@
 				<Item Name="rename_object.vi" Type="VI" URL="../rename_object.vi"/>
 				<Item Name="enclose_selection.vi" Type="VI" URL="../enclose_selection.vi"/>
 				<Item Name="delete_object.vi" Type="VI" URL="../delete_object.vi"/>
+				<Item Name="save_vi.vi" Type="VI" URL="../save_vi.vi"/>
 			</Item>
 			<Item Name="Show Panel.vi" Type="VI" URL="../Show Panel.vi"/>
 			<Item Name="Hide Panel.vi" Type="VI" URL="../Hide Panel.vi"/>
@@ -133,6 +136,7 @@
 		<Item Name="Do Add To Selection.vi" Type="VI" URL="../Do Add To Selection.vi"/>
 		<Item Name="Do Clear Selection List.vi" Type="VI" URL="../Do Clear Selection List.vi"/>
 		<Item Name="Do Create Control.vi" Type="VI" URL="../Do Create Control.vi"/>
+		<Item Name="Do Delete Object.vi" Type="VI" URL="../Do Delete Object.vi"/>
 		<Item Name="Do Enclose Selection.vi" Type="VI" URL="../Do Enclose Selection.vi"/>
 		<Item Name="Do Remove From Selection.vi" Type="VI" URL="../Do Remove From Selection.vi"/>
 		<Item Name="Do Rename Object.vi" Type="VI" URL="../Do Rename Object.vi"/>
@@ -164,9 +168,12 @@
 		<Item Name="Wait on Event Sync.vi" Type="VI" URL="../Wait on Event Sync.vi"/>
 		<Item Name="Wait on Module Sync.vi" Type="VI" URL="../Wait on Module Sync.vi"/>
 	</Item>
+	<Item Name="Tools" Type="Folder">
+		<Item Name="Get Python Code.vi" Type="VI" URL="../Get Python Code.vi"/>
+		<Item Name="Write INI.vi" Type="VI" URL="../Write INI.vi"/>
+	</Item>
 	<Item Name="Main.vi" Type="VI" URL="../Main.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Get Python Code.vi" Type="VI" URL="../Get Python Code.vi"/>
-	<Item Name="Do Delete Object.vi" Type="VI" URL="../Do Delete Object.vi"/>
+	<Item Name="Do Save VI.vi" Type="VI" URL="../Do Save VI.vi"/>
 </Library>
