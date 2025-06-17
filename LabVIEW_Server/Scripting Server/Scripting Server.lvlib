@@ -56,6 +56,8 @@
 				<Item Name="add_subvi (Reply Payload)--cluster.ctl" Type="VI" URL="../add_subvi (Reply Payload)--cluster.ctl"/>
 				<Item Name="connect_to_pane Argument--cluster.ctl" Type="VI" URL="../connect_to_pane Argument--cluster.ctl"/>
 				<Item Name="connect_to_pane (Reply Payload)--cluster.ctl" Type="VI" URL="../connect_to_pane (Reply Payload)--cluster.ctl"/>
+				<Item Name="get_object_help Argument--cluster.ctl" Type="VI" URL="../get_object_help Argument--cluster.ctl"/>
+				<Item Name="get_object_help (Reply Payload)--cluster.ctl" Type="VI" URL="../get_object_help (Reply Payload)--cluster.ctl"/>
 			</Item>
 			<Item Name="Broadcast" Type="Folder">
 				<Item Name="Did Init Argument--cluster.ctl" Type="VI" URL="../Did Init Argument--cluster.ctl"/>
@@ -83,6 +85,7 @@
 				<Item Name="set_value.vi" Type="VI" URL="../set_value.vi"/>
 				<Item Name="add_subvi.vi" Type="VI" URL="../add_subvi.vi"/>
 				<Item Name="connect_to_pane.vi" Type="VI" URL="../connect_to_pane.vi"/>
+				<Item Name="get_object_help.vi" Type="VI" URL="../get_object_help.vi"/>
 				<Item Name="get_structure_diagram.vi" Type="VI" URL="../get_structure_diagram.vi"/>
 			</Item>
 			<Item Name="Show Panel.vi" Type="VI" URL="../Show Panel.vi"/>
@@ -149,6 +152,7 @@
 		<Item Name="Do Create Control.vi" Type="VI" URL="../Do Create Control.vi"/>
 		<Item Name="Do Delete Object.vi" Type="VI" URL="../Do Delete Object.vi"/>
 		<Item Name="Do Enclose Selection.vi" Type="VI" URL="../Do Enclose Selection.vi"/>
+		<Item Name="Do Get Object Help.vi" Type="VI" URL="../Do Get Object Help.vi"/>
 		<Item Name="Do Get Structure Diagram.vi" Type="VI" URL="../Do Get Structure Diagram.vi"/>
 		<Item Name="Do Remove From Selection.vi" Type="VI" URL="../Do Remove From Selection.vi"/>
 		<Item Name="Do Rename Object.vi" Type="VI" URL="../Do Rename Object.vi"/>
