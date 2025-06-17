@@ -17,11 +17,13 @@
 		</Item>
 		<Item Name="Testers" Type="Folder">
 			<Item Name="Test Scripting Server API.vi" Type="VI" URL="../Scripting Server/Test Scripting Server API.vi"/>
+			<Item Name="Test_Connect_Connector_Pane.vi" Type="VI" URL="../Scripting Server/Test_Connect_Connector_Pane.vi"/>
 			<Item Name="Test_Create_Control.vi" Type="VI" URL="../Scripting Server/Test_Create_Control.vi"/>
+			<Item Name="Test_EncloseSelection.vi" Type="VI" URL="../Scripting Server/Test_EncloseSelection.vi"/>
+			<Item Name="Test_Rename_And_Set_Value.vi" Type="VI" URL="../Scripting Server/Test_Rename_And_Set_Value.vi"/>
+			<Item Name="Test_StructureSubdiagramsAndDeleteObject.vi" Type="VI" URL="../Scripting Server/Test_StructureSubdiagramsAndDeleteObject.vi"/>
 		</Item>
 		<Item Name="Datatypes.ctl" Type="VI" URL="../Scripting Server/Datatypes.ctl"/>
-		<Item Name="Test_EncloseSelection.vi" Type="VI" URL="../Scripting Server/Test_EncloseSelection.vi"/>
-		<Item Name="Test_Rename_And_Set_Value.vi" Type="VI" URL="../Scripting Server/Test_Rename_And_Set_Value.vi"/>
 		<Item Name="Dependencies" Type="Dependencies"/>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
