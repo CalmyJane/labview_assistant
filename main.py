@@ -1,19 +1,14 @@
-# server.py ----------------------------------------------------------
 from mcp.server.fastmcp import FastMCP
 import os
 import pythoncom
 from win32com.client import VARIANT
 mcp = FastMCP("LabVIEW Assistant")
 
-# ---- lazy LabVIEW handle ------------------------------------------
+
 _labview = None
 _labview_err = None
 
 def get_labview():
-    """
-    Returns a cached LabVIEW.Application COM object.
-    Import and Dispatch are delayed until the very first tool call.
-    """
     global _labview, _labview_err
     if _labview is None and _labview_err is None:
         try:
@@ -24,7 +19,7 @@ def get_labview():
     if _labview_err is not None:
         raise RuntimeError(f"Cannot connect to LabVIEW: {_labview_err}")
     return _labview
-# -------------------------------------------------------------------
+
 
 @mcp.tool()
 def echo(text: str) -> str:
@@ -46,7 +41,6 @@ def start_module() -> str:
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("Show Main VI Diagram on Init (F)","error in","error out", "Wait for Event Sync?", "Scripting Server Broadcast Events", "Module Was Already Running?", "Module Name" )    # Control/Indicator Names
@@ -56,9 +50,7 @@ def start_module() -> str:
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (False, "", "", "", "", "", "")
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?
@@ -82,7 +74,6 @@ def new_vi() -> str:
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("wait for reply (T)","error in","error out", "timed out?", "result", "vi_id" )    # Control/Indicator Names
@@ -92,9 +83,7 @@ def new_vi() -> str:
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (True, "", "", "", "", 0)
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?
@@ -124,7 +113,6 @@ parameter name: "position_x" - parameter description: ""
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("wait for reply (T)","position_y","error in","object_name","diagram_id","position_x","error out", "timed out?", "result", "object_id" )    # Control/Indicator Names
@@ -134,9 +122,7 @@ parameter name: "position_x" - parameter description: ""
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (True, position_y, "", object_name, diagram_id, position_x, "", "", "", 0)
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?
@@ -149,7 +135,7 @@ parameter name: "position_x" - parameter description: ""
 @mcp.tool()
 def connect_objects(to_object_terminal_index: int,from_object_terminal_index: int,to_object_reference: int,from_object_reference: int,vi_reference: int) -> str:
     """
-    Connects two terminals of two objects with a wire on the block diagram of a labview vi. To get a new VI use "new vi" to add objects to a vi use "add object". If a frontpanel control/indicator reference is passed to this function, it will automatically use the corresponding terminal on the block diagram for wiring.The Functions Inputs are: parameter name: "to_object_terminal_index" - parameter description: ""
+    Connects two terminals of two objects with a wire on the block diagram of a labview vi. To get a new VI use "new vi" to add objects to a vi use "add object". If a frontpanel control/indicator reference is passed to this function, it will automatically use the corresponding terminal on the block diagram for wiring. Use get_object_terminals before wiring to find out which terminals to wire.The Functions Inputs are: parameter name: "to_object_terminal_index" - parameter description: ""
 parameter name: "from_object_terminal_index" - parameter description: ""
 parameter name: "to_object_reference" - parameter description: ""
 parameter name: "from_object_reference" - parameter description: ""
@@ -165,7 +151,6 @@ parameter name: "vi_reference" - parameter description: ""
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("to_object_terminal_index","from_object_terminal_index","wait for reply (T)","to_object_reference","error in","from_object_reference","vi_reference","error out", "timed out?", "result" )    # Control/Indicator Names
@@ -175,9 +160,7 @@ parameter name: "vi_reference" - parameter description: ""
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (to_object_terminal_index, from_object_terminal_index, True, to_object_reference, "", from_object_reference, vi_reference, "", "", "")
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?
@@ -203,7 +186,6 @@ The Functions Inputs are: parameter name: "object_id" - parameter description: "
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("wait for reply (T)","error in","object_id","error out", "timed out?", "result" )    # Control/Indicator Names
@@ -213,9 +195,7 @@ The Functions Inputs are: parameter name: "object_id" - parameter description: "
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (True, "", object_id, "", "", "")
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?
@@ -241,7 +221,6 @@ The Functions Inputs are: parameter name: "vi_reference" - parameter description
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("wait for reply (T)","error in","vi_reference","error out", "timed out?", "result" )    # Control/Indicator Names
@@ -251,9 +230,7 @@ The Functions Inputs are: parameter name: "vi_reference" - parameter description
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (True, "", vi_reference, "", "", "")
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?
@@ -279,7 +256,6 @@ The Functions Inputs are: parameter name: "vi_reference" - parameter description
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("wait for reply (T)","error in","vi_reference","error out", "timed out?", "result" )    # Control/Indicator Names
@@ -289,9 +265,7 @@ The Functions Inputs are: parameter name: "vi_reference" - parameter description
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (True, "", vi_reference, "", "", "")
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?
@@ -320,7 +294,6 @@ parameter name: "object_id" - parameter description: ""
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("wait for reply (T)","constant","error in","terminal_index","object_id","error out", "timed out?", "created_object_id" )    # Control/Indicator Names
@@ -330,9 +303,7 @@ parameter name: "object_id" - parameter description: ""
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (True, constant, "", terminal_index, object_id, "", "", 0)
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?
@@ -359,7 +330,6 @@ parameter name: "vi_id" - parameter description: ""
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("wait for reply (T)","error in","open_frontpanel","vi_id","error out", "timed out?" )    # Control/Indicator Names
@@ -369,9 +339,7 @@ parameter name: "vi_id" - parameter description: ""
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (True, "", open_frontpanel, vi_id, "", "")
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?
@@ -399,7 +367,6 @@ Created using DQMH Framework: Event Scripter 7.1.0.1503.The Functions Inputs are
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("wait for reply (T)","error in","vi_id","error out", "timed out?" )    # Control/Indicator Names
@@ -409,9 +376,7 @@ Created using DQMH Framework: Event Scripter 7.1.0.1503.The Functions Inputs are
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (True, "", vi_id, "", "")
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?
@@ -440,7 +405,6 @@ parameter name: "vi_id" - parameter description: ""
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("wait for reply (T)","error in","object_id","vi_id","error out", "timed out?" )    # Control/Indicator Names
@@ -450,9 +414,7 @@ parameter name: "vi_id" - parameter description: ""
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (True, "", object_id, vi_id, "", "")
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?
@@ -481,7 +443,6 @@ parameter name: "vi_id" - parameter description: ""
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("wait for reply (T)","error in","object_id","vi_id","error out", "timed out?" )    # Control/Indicator Names
@@ -491,9 +452,7 @@ parameter name: "vi_id" - parameter description: ""
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (True, "", object_id, vi_id, "", "")
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?
@@ -523,7 +482,6 @@ parameter name: "object_id" - parameter description: ""
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("wait for reply (T)","error in","label_visible","new_label_name","object_id","error out", "timed out?" )    # Control/Indicator Names
@@ -533,9 +491,7 @@ parameter name: "object_id" - parameter description: ""
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (True, "", label_visible, new_label_name, object_id, "", "")
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?
@@ -569,7 +525,6 @@ parameter name: "vi_id" - parameter description: ""
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("wait for reply (T)","error in","structure_type","vi_id","error out", "timed out?", "object_id" )    # Control/Indicator Names
@@ -579,9 +534,7 @@ parameter name: "vi_id" - parameter description: ""
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (True, "", structure_type, vi_id, "", "", 0)
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?
@@ -609,7 +562,6 @@ Created using DQMH Framework: Event Scripter 7.1.0.1503.The Functions Inputs are
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("wait for reply (T)","error in","object_id","error out", "timed out?" )    # Control/Indicator Names
@@ -619,9 +571,7 @@ Created using DQMH Framework: Event Scripter 7.1.0.1503.The Functions Inputs are
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (True, "", object_id, "", "")
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?
@@ -647,7 +597,6 @@ parameter name: "vi_id" - parameter description: ""
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("wait for reply (T)","error in","path","vi_id","error out", "timed out?", "path_out" )    # Control/Indicator Names
@@ -657,9 +606,7 @@ parameter name: "vi_id" - parameter description: ""
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (True, "", path, vi_id, "", "", "")
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?
@@ -688,7 +635,6 @@ parameter name: "object_id" - parameter description: ""
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("wait for reply (T)","error in","value","object_id","error out", "timed out?" )    # Control/Indicator Names
@@ -698,9 +644,7 @@ parameter name: "object_id" - parameter description: ""
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (True, "", value, object_id, "", "")
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?
@@ -729,7 +673,6 @@ parameter name: "diagram_id" - parameter description: ""
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("wait for reply (T)","error in","subvi_path","diagram_id","error out", "timed out?", "subvi_id" )    # Control/Indicator Names
@@ -739,9 +682,7 @@ parameter name: "diagram_id" - parameter description: ""
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (True, "", subvi_path, diagram_id, "", "", 0)
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?
@@ -754,8 +695,7 @@ parameter name: "diagram_id" - parameter description: ""
 @mcp.tool()
 def connect_to_pane(connector_pane_index: int,control_id: int) -> str:
     """
-    takes a control_id and connects the corresponding frontpanel control or indicator to the connector pane of the subvi. Do this to all necessary fronpanel controls/indicators to use the VI as a SubVI. The subvis by default have 4 fields on the left and right, and two on top/bottom. Their index starts at the bottom right, and goes first up the 4 right connectors (0,1,2,3), then comes the lower left (4), then upper left (5), lower right (6), upper right (7), then the left 4 from the bottom up (8,9,10,11).
-The Functions Inputs are: parameter name: "connector_pane_index" - parameter description: ""
+    takes a control_id and connects the corresponding frontpanel control or indicator to the connector pane of the subvi. Do this to all necessary fronpanel controls/indicators to use the VI as a SubVI. The subvis by default have 4 fields on the left and right, and two on top/bottom. Their index starts at the bottom right, and goes first up the 4 right connectors (0,1,2,3), then comes the lower left (4), then upper left (5), lower right (6), upper right (7), then the left 4 from the bottom up (8,9,10,11). Controls (vi-inputs) should always be connected to the left 6 fields (6-11), Indicators (vi-outputs) to the right 6 fields.The Functions Inputs are: parameter name: "connector_pane_index" - parameter description: ""
 parameter name: "control_id" - parameter description: ""
 
     """
@@ -768,7 +708,6 @@ parameter name: "control_id" - parameter description: ""
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("wait for reply (T)","error in","connector_pane_index","control_id","error out", "timed out?" )    # Control/Indicator Names
@@ -778,9 +717,153 @@ parameter name: "control_id" - parameter description: ""
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (True, "", connector_pane_index, control_id, "", "")
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
+    vi.Call2(param_names, param_values,
+            False,   # open FP?
+            False,   # close FP after call?
+            False,   # suspend on call?
+            False)   # bring LabVIEW to front?
+    
+    return param_values
+
+
+@mcp.tool()
+def get_object_help(object_id: int) -> str:
+    """
+    returns the labview detailed help article including termina descriptions. To get the exact indexes of the terminals use the get terminal info.
+
+_____
+Created using DQMH Framework: Event Scripter 7.1.0.1503.The Functions Inputs are: parameter name: "object_id" - parameter description: ""
+
+    """
+    lv_app  = get_labview()
+    vi_name = r"get_object_help.vi"
+    current_dir = os.path.dirname(__file__)
+    vi_path = os.path.join(current_dir, "LabVIEW_Server", "Scripting Server", vi_name)
+    vi      = lv_app.GetVIReference(vi_path, "", False, 0)
+
+    # Make sure win32com knows Call2 is a method
+    vi._FlagAsMethod("Call2")
+
+    param_names  = VARIANT(
+        pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
+        ("wait for reply (T)","error in","object_id","error out", "timed out?", "help_string" )    # Control/Indicator Names
+    )
+
+    param_values = VARIANT(
+        pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
+        (True, "", object_id, "", "", "")
+    )
+
+    vi.Call2(param_names, param_values,
+            False,   # open FP?
+            False,   # close FP after call?
+            False,   # suspend on call?
+            False)   # bring LabVIEW to front?
+    
+    return param_values
+
+
+@mcp.tool()
+def get_loop_conditional_terminal(loop_id: int) -> str:
+    """
+    Returns the conditional terminal of a while- or for-loop (if enabled), to be used with connect_objects (as to_object_id, with index 0), or also with create_control.The Functions Inputs are: parameter name: "loop_id" - parameter description: ""
+
+    """
+    lv_app  = get_labview()
+    vi_name = r"get_loop_conditional_terminal.vi"
+    current_dir = os.path.dirname(__file__)
+    vi_path = os.path.join(current_dir, "LabVIEW_Server", "Scripting Server", vi_name)
+    vi      = lv_app.GetVIReference(vi_path, "", False, 0)
+
+    # Make sure win32com knows Call2 is a method
+    vi._FlagAsMethod("Call2")
+
+    param_names  = VARIANT(
+        pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
+        ("wait for reply (T)","error in","loop_id","error out", "timed out?", "conditional_terminal_id" )    # Control/Indicator Names
+    )
+
+    param_values = VARIANT(
+        pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
+        (True, "", loop_id, "", "", 0)
+    )
+
+    vi.Call2(param_names, param_values,
+            False,   # open FP?
+            False,   # close FP after call?
+            False,   # suspend on call?
+            False)   # bring LabVIEW to front?
+    
+    return param_values
+
+
+@mcp.tool()
+def show_conditional_terminal(show: bool,loop_id: int) -> str:
+    """
+    Shows or hides the conditional terminal of a for loop.
+
+_____
+Created using DQMH Framework: Event Scripter 7.1.0.1503.The Functions Inputs are: parameter name: "show" - parameter description: ""
+parameter name: "loop_id" - parameter description: ""
+
+    """
+    lv_app  = get_labview()
+    vi_name = r"show_conditional_terminal.vi"
+    current_dir = os.path.dirname(__file__)
+    vi_path = os.path.join(current_dir, "LabVIEW_Server", "Scripting Server", vi_name)
+    vi      = lv_app.GetVIReference(vi_path, "", False, 0)
+
+    # Make sure win32com knows Call2 is a method
+    vi._FlagAsMethod("Call2")
+
+    param_names  = VARIANT(
+        pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
+        ("wait for reply (T)","error in","show","loop_id","error out", "timed out?" )    # Control/Indicator Names
+    )
+
+    param_values = VARIANT(
+        pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
+        (True, "", show, loop_id, "", "")
+    )
+
+    vi.Call2(param_names, param_values,
+            False,   # open FP?
+            False,   # close FP after call?
+            False,   # suspend on call?
+            False)   # bring LabVIEW to front?
+    
+    return param_values
+
+
+@mcp.tool()
+def get_loop_iteration_terminal(loop_id: int) -> str:
+    """
+    Returns the loops iteration terminal to be used for wiring.
+
+_____
+Created using DQMH Framework: Event Scripter 7.1.0.1503.The Functions Inputs are: parameter name: "loop_id" - parameter description: ""
+
+    """
+    lv_app  = get_labview()
+    vi_name = r"get_loop_iteration_terminal.vi"
+    current_dir = os.path.dirname(__file__)
+    vi_path = os.path.join(current_dir, "LabVIEW_Server", "Scripting Server", vi_name)
+    vi      = lv_app.GetVIReference(vi_path, "", False, 0)
+
+    # Make sure win32com knows Call2 is a method
+    vi._FlagAsMethod("Call2")
+
+    param_names  = VARIANT(
+        pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
+        ("wait for reply (T)","error in","loop_id","error out", "timed out?", "iteration_terminal_id" )    # Control/Indicator Names
+    )
+
+    param_values = VARIANT(
+        pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
+        (True, "", loop_id, "", "", 0)
+    )
+
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?
@@ -807,7 +890,6 @@ parameter name: "structure_id" - parameter description: ""
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("wait for reply (T)","error in","index","structure_id","error out", "timed out?", "diagram_id" )    # Control/Indicator Names
@@ -817,9 +899,7 @@ parameter name: "structure_id" - parameter description: ""
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (True, "", index, structure_id, "", "", 0)
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?
@@ -843,7 +923,6 @@ def stop_module() -> str:
     # Make sure win32com knows Call2 is a method
     vi._FlagAsMethod("Call2")
 
-    # -------- parameter containers – one INPUT, one OUTPUT -------------
     param_names  = VARIANT(
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_BSTR,
         ("Timeout to Wait for Stop (s) (-1: no timeout)","error in","Wait for Module to Stop? (F)","Origin","error out" )    # Control/Indicator Names
@@ -853,9 +932,7 @@ def stop_module() -> str:
         pythoncom.VT_BYREF | pythoncom.VT_ARRAY | pythoncom.VT_VARIANT,
         (0,"", False, "", "")
     )
-    # -------------------------------------------------------------------
 
-    # Call the VI as a subVI (front panel stays closed, no suspend, etc.)
     vi.Call2(param_names, param_values,
             False,   # open FP?
             False,   # close FP after call?

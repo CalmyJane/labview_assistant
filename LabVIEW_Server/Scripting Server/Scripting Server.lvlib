@@ -58,6 +58,12 @@
 				<Item Name="connect_to_pane (Reply Payload)--cluster.ctl" Type="VI" URL="../connect_to_pane (Reply Payload)--cluster.ctl"/>
 				<Item Name="get_object_help Argument--cluster.ctl" Type="VI" URL="../get_object_help Argument--cluster.ctl"/>
 				<Item Name="get_object_help (Reply Payload)--cluster.ctl" Type="VI" URL="../get_object_help (Reply Payload)--cluster.ctl"/>
+				<Item Name="get_loop_conditional_terminal Argument--cluster.ctl" Type="VI" URL="../get_loop_conditional_terminal Argument--cluster.ctl"/>
+				<Item Name="get_loop_conditional_terminal (Reply Payload)--cluster.ctl" Type="VI" URL="../get_loop_conditional_terminal (Reply Payload)--cluster.ctl"/>
+				<Item Name="show_conditional_terminal Argument--cluster.ctl" Type="VI" URL="../show_conditional_terminal Argument--cluster.ctl"/>
+				<Item Name="show_conditional_terminal (Reply Payload)--cluster.ctl" Type="VI" URL="../show_conditional_terminal (Reply Payload)--cluster.ctl"/>
+				<Item Name="get_loop_iteration_terminal Argument--cluster.ctl" Type="VI" URL="../get_loop_iteration_terminal Argument--cluster.ctl"/>
+				<Item Name="get_loop_iteration_terminal (Reply Payload)--cluster.ctl" Type="VI" URL="../get_loop_iteration_terminal (Reply Payload)--cluster.ctl"/>
 			</Item>
 			<Item Name="Broadcast" Type="Folder">
 				<Item Name="Did Init Argument--cluster.ctl" Type="VI" URL="../Did Init Argument--cluster.ctl"/>
@@ -86,6 +92,9 @@
 				<Item Name="add_subvi.vi" Type="VI" URL="../add_subvi.vi"/>
 				<Item Name="connect_to_pane.vi" Type="VI" URL="../connect_to_pane.vi"/>
 				<Item Name="get_object_help.vi" Type="VI" URL="../get_object_help.vi"/>
+				<Item Name="get_loop_conditional_terminal.vi" Type="VI" URL="../get_loop_conditional_terminal.vi"/>
+				<Item Name="show_conditional_terminal.vi" Type="VI" URL="../show_conditional_terminal.vi"/>
+				<Item Name="get_loop_iteration_terminal.vi" Type="VI" URL="../get_loop_iteration_terminal.vi"/>
 				<Item Name="get_structure_diagram.vi" Type="VI" URL="../get_structure_diagram.vi"/>
 			</Item>
 			<Item Name="Show Panel.vi" Type="VI" URL="../Show Panel.vi"/>
@@ -152,6 +161,8 @@
 		<Item Name="Do Create Control.vi" Type="VI" URL="../Do Create Control.vi"/>
 		<Item Name="Do Delete Object.vi" Type="VI" URL="../Do Delete Object.vi"/>
 		<Item Name="Do Enclose Selection.vi" Type="VI" URL="../Do Enclose Selection.vi"/>
+		<Item Name="Do Get Cond Terminal.vi" Type="VI" URL="../Do Get Cond Terminal.vi"/>
+		<Item Name="do get loop iteration terminal.vi" Type="VI" URL="../do get loop iteration terminal.vi"/>
 		<Item Name="Do Get Object Help.vi" Type="VI" URL="../Do Get Object Help.vi"/>
 		<Item Name="Do Get Structure Diagram.vi" Type="VI" URL="../Do Get Structure Diagram.vi"/>
 		<Item Name="Do Remove From Selection.vi" Type="VI" URL="../Do Remove From Selection.vi"/>
@@ -159,6 +170,7 @@
 		<Item Name="Do Run VI.vi" Type="VI" URL="../Do Run VI.vi"/>
 		<Item Name="Do Save VI.vi" Type="VI" URL="../Do Save VI.vi"/>
 		<Item Name="Do Set Value.vi" Type="VI" URL="../Do Set Value.vi"/>
+		<Item Name="do show conditional terminal.vi" Type="VI" URL="../do show conditional terminal.vi"/>
 		<Item Name="Extract Input Terminals.vi" Type="VI" URL="../Extract Input Terminals.vi"/>
 		<Item Name="Extract Output Terminals.vi" Type="VI" URL="../Extract Output Terminals.vi"/>
 		<Item Name="generate vi error list.vi" Type="VI" URL="../generate vi error list.vi"/>
@@ -167,6 +179,7 @@
 		<Item Name="Get Diagram By ID.vi" Type="VI" URL="../Get Diagram By ID.vi"/>
 		<Item Name="Get GObject by ID.vi" Type="VI" URL="../Get GObject by ID.vi"/>
 		<Item Name="Get Node by ID.vi" Type="VI" URL="../Get Node by ID.vi"/>
+		<Item Name="Get Terminal by ID.vi" Type="VI" URL="../Get Terminal by ID.vi"/>
 		<Item Name="get terminal info.vi" Type="VI" URL="../get terminal info.vi"/>
 		<Item Name="Get Terminals.vi" Type="VI" URL="../Get Terminals.vi"/>
 		<Item Name="Get VI By ID.vi" Type="VI" URL="../Get VI By ID.vi"/>

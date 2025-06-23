@@ -3,6 +3,7 @@
 	<Property Name="NI.LV.All.SaveVersion" Type="Str">25.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Item Name="My Computer" Type="My Computer">
+		<Property Name="NI.SortType" Type="Int">3</Property>
 		<Property Name="server.app.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="server.control.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="server.tcp.enabled" Type="Bool">false</Property>
@@ -21,6 +22,8 @@
 			<Item Name="Test_Create_Control.vi" Type="VI" URL="../Scripting Server/Test_Create_Control.vi"/>
 			<Item Name="Test_EncloseSelection.vi" Type="VI" URL="../Scripting Server/Test_EncloseSelection.vi"/>
 			<Item Name="Test_Rename_And_Set_Value.vi" Type="VI" URL="../Scripting Server/Test_Rename_And_Set_Value.vi"/>
+			<Item Name="Test_RandomNumberGenerator.vi" Type="VI" URL="../Scripting Server/Test_RandomNumberGenerator.vi"/>
+			<Item Name="Test_WireLoops.vi" Type="VI" URL="../Scripting Server/Test_WireLoops.vi"/>
 			<Item Name="Test_StructureSubdiagramsAndDeleteObject.vi" Type="VI" URL="../Scripting Server/Test_StructureSubdiagramsAndDeleteObject.vi"/>
 		</Item>
 		<Item Name="Datatypes.ctl" Type="VI" URL="../Scripting Server/Datatypes.ctl"/>
