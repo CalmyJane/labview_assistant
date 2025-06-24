@@ -102,6 +102,7 @@
 				<Item Name="get_loop_iteration_terminal.vi" Type="VI" URL="../get_loop_iteration_terminal.vi"/>
 				<Item Name="get_structure_diagram.vi" Type="VI" URL="../get_structure_diagram.vi"/>
 				<Item Name="get_allowed_paths.vi" Type="VI" URL="../get_allowed_paths.vi"/>
+				<Item Name="create_project.vi" Type="VI" URL="../create_project.vi"/>
 			</Item>
 			<Item Name="Show Panel.vi" Type="VI" URL="../Show Panel.vi"/>
 			<Item Name="Hide Panel.vi" Type="VI" URL="../Hide Panel.vi"/>
@@ -109,7 +110,6 @@
 			<Item Name="Get Module Execution Status.vi" Type="VI" URL="../Get Module Execution Status.vi"/>
 			<Item Name="Show Diagram.vi" Type="VI" URL="../Show Diagram.vi"/>
 			<Item Name="Read Config Data.vi" Type="VI" URL="../Read Config Data.vi"/>
-			<Item Name="create_project.vi" Type="VI" URL="../create_project.vi"/>
 		</Item>
 		<Item Name="Start Module.vi" Type="VI" URL="../Start Module.vi"/>
 		<Item Name="Synchronize Module Events.vi" Type="VI" URL="../Synchronize Module Events.vi"/>
@@ -168,6 +168,7 @@
 		<Item Name="Do Clear Selection List.vi" Type="VI" URL="../Do Clear Selection List.vi"/>
 		<Item Name="do connect to pane.vi" Type="VI" URL="../do connect to pane.vi"/>
 		<Item Name="Do Create Control.vi" Type="VI" URL="../Do Create Control.vi"/>
+		<Item Name="Do create project.vi" Type="VI" URL="../Do create project.vi"/>
 		<Item Name="Do Delete Object.vi" Type="VI" URL="../Do Delete Object.vi"/>
 		<Item Name="Do Enclose Selection.vi" Type="VI" URL="../Do Enclose Selection.vi"/>
 		<Item Name="Do Get Cond Terminal.vi" Type="VI" URL="../Do Get Cond Terminal.vi"/>
@@ -180,6 +181,7 @@
 		<Item Name="Do Save VI.vi" Type="VI" URL="../Do Save VI.vi"/>
 		<Item Name="Do Set Value.vi" Type="VI" URL="../Do Set Value.vi"/>
 		<Item Name="do show conditional terminal.vi" Type="VI" URL="../do show conditional terminal.vi"/>
+		<Item Name="generate forbidden path error.vi" Type="VI" URL="../generate forbidden path error.vi"/>
 		<Item Name="generate vi error list.vi" Type="VI" URL="../generate vi error list.vi"/>
 		<Item Name="Get Control by ID.vi" Type="VI" URL="../Get Control by ID.vi"/>
 		<Item Name="Get Diagram By ID.vi" Type="VI" URL="../Get Diagram By ID.vi"/>
@@ -189,6 +191,7 @@
 		<Item Name="get terminal info.vi" Type="VI" URL="../get terminal info.vi"/>
 		<Item Name="Get Terminals.vi" Type="VI" URL="../Get Terminals.vi"/>
 		<Item Name="Get VI By ID.vi" Type="VI" URL="../Get VI By ID.vi"/>
+		<Item Name="Is Allowed Path.vi" Type="VI" URL="../Is Allowed Path.vi"/>
 		<Item Name="Is Same Object.vi" Type="VI" URL="../Is Same Object.vi"/>
 		<Item Name="Wire Two Objects.vi" Type="VI" URL="../Wire Two Objects.vi"/>
 	</Item>
@@ -212,7 +215,4 @@
 	<Item Name="Main.vi" Type="VI" URL="../Main.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Is Allowed Path.vi" Type="VI" URL="../Is Allowed Path.vi"/>
-	<Item Name="generate forbidden path error.vi" Type="VI" URL="../generate forbidden path error.vi"/>
-	<Item Name="Do create project.vi" Type="VI" URL="../Do create project.vi"/>
 </Library>
