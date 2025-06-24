@@ -65,6 +65,10 @@
 				<Item Name="get_loop_iteration_terminal Argument--cluster.ctl" Type="VI" URL="../get_loop_iteration_terminal Argument--cluster.ctl"/>
 				<Item Name="get_loop_iteration_terminal (Reply Payload)--cluster.ctl" Type="VI" URL="../get_loop_iteration_terminal (Reply Payload)--cluster.ctl"/>
 				<Item Name="Read Config Data Argument--cluster.ctl" Type="VI" URL="../Read Config Data Argument--cluster.ctl"/>
+				<Item Name="get_allowed_paths Argument--cluster.ctl" Type="VI" URL="../get_allowed_paths Argument--cluster.ctl"/>
+				<Item Name="get_allowed_paths (Reply Payload)--cluster.ctl" Type="VI" URL="../get_allowed_paths (Reply Payload)--cluster.ctl"/>
+				<Item Name="create_project Argument--cluster.ctl" Type="VI" URL="../create_project Argument--cluster.ctl"/>
+				<Item Name="create_project (Reply Payload)--cluster.ctl" Type="VI" URL="../create_project (Reply Payload)--cluster.ctl"/>
 			</Item>
 			<Item Name="Broadcast" Type="Folder">
 				<Item Name="Did Init Argument--cluster.ctl" Type="VI" URL="../Did Init Argument--cluster.ctl"/>
@@ -97,6 +101,7 @@
 				<Item Name="show_conditional_terminal.vi" Type="VI" URL="../show_conditional_terminal.vi"/>
 				<Item Name="get_loop_iteration_terminal.vi" Type="VI" URL="../get_loop_iteration_terminal.vi"/>
 				<Item Name="get_structure_diagram.vi" Type="VI" URL="../get_structure_diagram.vi"/>
+				<Item Name="get_allowed_paths.vi" Type="VI" URL="../get_allowed_paths.vi"/>
 			</Item>
 			<Item Name="Show Panel.vi" Type="VI" URL="../Show Panel.vi"/>
 			<Item Name="Hide Panel.vi" Type="VI" URL="../Hide Panel.vi"/>
@@ -104,6 +109,7 @@
 			<Item Name="Get Module Execution Status.vi" Type="VI" URL="../Get Module Execution Status.vi"/>
 			<Item Name="Show Diagram.vi" Type="VI" URL="../Show Diagram.vi"/>
 			<Item Name="Read Config Data.vi" Type="VI" URL="../Read Config Data.vi"/>
+			<Item Name="create_project.vi" Type="VI" URL="../create_project.vi"/>
 		</Item>
 		<Item Name="Start Module.vi" Type="VI" URL="../Start Module.vi"/>
 		<Item Name="Synchronize Module Events.vi" Type="VI" URL="../Synchronize Module Events.vi"/>
@@ -208,4 +214,5 @@
 	</Item>
 	<Item Name="Is Allowed Path.vi" Type="VI" URL="../Is Allowed Path.vi"/>
 	<Item Name="generate forbidden path error.vi" Type="VI" URL="../generate forbidden path error.vi"/>
+	<Item Name="Do create project.vi" Type="VI" URL="../Do create project.vi"/>
 </Library>
