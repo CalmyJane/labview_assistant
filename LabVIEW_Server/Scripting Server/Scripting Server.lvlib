@@ -171,11 +171,8 @@
 		<Item Name="Do Save VI.vi" Type="VI" URL="../Do Save VI.vi"/>
 		<Item Name="Do Set Value.vi" Type="VI" URL="../Do Set Value.vi"/>
 		<Item Name="do show conditional terminal.vi" Type="VI" URL="../do show conditional terminal.vi"/>
-		<Item Name="Extract Input Terminals.vi" Type="VI" URL="../Extract Input Terminals.vi"/>
-		<Item Name="Extract Output Terminals.vi" Type="VI" URL="../Extract Output Terminals.vi"/>
 		<Item Name="generate vi error list.vi" Type="VI" URL="../generate vi error list.vi"/>
 		<Item Name="Get Control by ID.vi" Type="VI" URL="../Get Control by ID.vi"/>
-		<Item Name="Get Datatype.vi" Type="VI" URL="../Get Datatype.vi"/>
 		<Item Name="Get Diagram By ID.vi" Type="VI" URL="../Get Diagram By ID.vi"/>
 		<Item Name="Get GObject by ID.vi" Type="VI" URL="../Get GObject by ID.vi"/>
 		<Item Name="Get Node by ID.vi" Type="VI" URL="../Get Node by ID.vi"/>
@@ -200,8 +197,8 @@
 		<Item Name="Wait on Module Sync.vi" Type="VI" URL="../Wait on Module Sync.vi"/>
 	</Item>
 	<Item Name="Tools" Type="Folder">
-		<Item Name="Get Python Code.vi" Type="VI" URL="../Get Python Code.vi"/>
 		<Item Name="Write INI.vi" Type="VI" URL="../Write INI.vi"/>
+		<Item Name="Tools.lvlib" Type="Library" URL="../Tools/Tools.lvlib"/>
 	</Item>
 	<Item Name="Main.vi" Type="VI" URL="../Main.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
