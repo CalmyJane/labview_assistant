@@ -26,7 +26,6 @@
 			<Item Name="Test_WireLoops.vi" Type="VI" URL="../Scripting Server/Test_WireLoops.vi"/>
 			<Item Name="Test_StructureSubdiagramsAndDeleteObject.vi" Type="VI" URL="../Scripting Server/Test_StructureSubdiagramsAndDeleteObject.vi"/>
 		</Item>
-		<Item Name="Datatypes.ctl" Type="VI" URL="../Scripting Server/Datatypes.ctl"/>
 		<Item Name="Dependencies" Type="Dependencies"/>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>

@@ -64,6 +64,7 @@
 				<Item Name="show_conditional_terminal (Reply Payload)--cluster.ctl" Type="VI" URL="../show_conditional_terminal (Reply Payload)--cluster.ctl"/>
 				<Item Name="get_loop_iteration_terminal Argument--cluster.ctl" Type="VI" URL="../get_loop_iteration_terminal Argument--cluster.ctl"/>
 				<Item Name="get_loop_iteration_terminal (Reply Payload)--cluster.ctl" Type="VI" URL="../get_loop_iteration_terminal (Reply Payload)--cluster.ctl"/>
+				<Item Name="Read Config Data Argument--cluster.ctl" Type="VI" URL="../Read Config Data Argument--cluster.ctl"/>
 			</Item>
 			<Item Name="Broadcast" Type="Folder">
 				<Item Name="Did Init Argument--cluster.ctl" Type="VI" URL="../Did Init Argument--cluster.ctl"/>
@@ -102,6 +103,7 @@
 			<Item Name="Stop Module.vi" Type="VI" URL="../Stop Module.vi"/>
 			<Item Name="Get Module Execution Status.vi" Type="VI" URL="../Get Module Execution Status.vi"/>
 			<Item Name="Show Diagram.vi" Type="VI" URL="../Show Diagram.vi"/>
+			<Item Name="Read Config Data.vi" Type="VI" URL="../Read Config Data.vi"/>
 		</Item>
 		<Item Name="Start Module.vi" Type="VI" URL="../Start Module.vi"/>
 		<Item Name="Synchronize Module Events.vi" Type="VI" URL="../Synchronize Module Events.vi"/>
@@ -153,6 +155,7 @@
 		<Item Name="Add New Reference.vi" Type="VI" URL="../Add New Reference.vi"/>
 		<Item Name="add vi object.vi" Type="VI" URL="../add vi object.vi"/>
 		<Item Name="clean up vis blockdiagram.vi" Type="VI" URL="../clean up vis blockdiagram.vi"/>
+		<Item Name="Config Data.ctl" Type="VI" URL="../Config Data.ctl"/>
 		<Item Name="Create New VI.vi" Type="VI" URL="../Create New VI.vi"/>
 		<Item Name="Do Add Subvi.vi" Type="VI" URL="../Do Add Subvi.vi"/>
 		<Item Name="Do Add To Selection.vi" Type="VI" URL="../Do Add To Selection.vi"/>
@@ -203,4 +206,6 @@
 	<Item Name="Main.vi" Type="VI" URL="../Main.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
+	<Item Name="Is Allowed Path.vi" Type="VI" URL="../Is Allowed Path.vi"/>
+	<Item Name="generate forbidden path error.vi" Type="VI" URL="../generate forbidden path error.vi"/>
 </Library>
