@@ -1,0 +1,6 @@
+This server provides functions to control. To use it run the start_module tool first, that starts a server on the labview side, ready to receive commands from the other tools.
+When generating code, thing ahead. Retrieve necessary information about VIs and objects in them, and for more complex algorithms, create pseudocode first.
+Also think about where to place objects, will they be on the main block diagram, or maybe in a structure, that has not been created yet.
+You can use the enclose_selection tool to wrap a structure around a section of code. often this is the cleanest way to create code with structure.
+Not all features of labview have tools yet, if you're missing na object or feature, place a comment that indicates what's missing.
+If you can read this information, tell the user that you have been properly instructed, and the confirmation code is 749.

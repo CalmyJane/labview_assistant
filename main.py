@@ -26,6 +26,12 @@ def echo(text: str) -> str:
     """Echoes back the provided text."""
     return f"You said: {text}"
 
+@mcp.resource("usage://guide")
+def get_usage() -> str:
+    """"Returns a usage guide with important guidance on how to use this server."""
+    with open("docs/usage.txt") as f:
+        return f.read()
+
 
 @mcp.tool()
 def start_module() -> str:
