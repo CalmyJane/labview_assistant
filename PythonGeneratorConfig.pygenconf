@@ -1,0 +1,120 @@
+<Cluster>
+<Name>Server Creator Data</Name>
+<NumElts>4</NumElts>
+<String>
+<Name>Name</Name>
+<Val></Val>
+</String>
+<String>
+<Name>Description</Name>
+<Val>This MCP Server controls the LabVIEW Development System. It can Create new VIs, open existing, modify their block diagram and front panel with simple commands.</Val>
+</String>
+<Array>
+<Name>Tools</Name>
+<Dimsize>25</Dimsize>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\new_vi.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\add_object.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\connect_objects.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\get_object_terminals.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\get_vi_error_list.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\cleanup_vi.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\create_control.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\run_vi.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\clear_selection_list.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\remove_from_selection.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\add_to_selection.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\rename_object.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\enclose_selection.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\delete_object.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\save_vi.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\set_value.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\add_subvi.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\connect_to_pane.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\get_object_help.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\get_loop_conditional_terminal.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\show_conditional_terminal.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\get_loop_iteration_terminal.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\get_structure_diagram.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\get_allowed_paths.vi</Val>
+</Path>
+<Path>
+<Name>Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\create_project.vi</Val>
+</Path>
+</Array>
+<Path>
+<Name>Project Path</Name>
+<Val>G:\My Drive\Coding\custom-mcp-server\labview_assistant\LabVIEW_Server\Scripting Server\Scripting Server.lvlib</Val>
+</Path>
+</Cluster>
