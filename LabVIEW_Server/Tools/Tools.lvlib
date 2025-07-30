@@ -7,6 +7,7 @@
 
 </Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
 	<Item Name="CTLs" Type="Folder">
 		<Item Name="Datatypes.ctl" Type="VI" URL="../Datatypes.ctl"/>
 		<Item Name="MCP Creator States.ctl" Type="VI" URL="../MCP Creator States.ctl"/>
@@ -27,11 +28,17 @@
 		<Item Name="Get VIs.vi" Type="VI" URL="../Get VIs.vi"/>
 		<Item Name="Is Float.vi" Type="VI" URL="../Is Float.vi"/>
 		<Item Name="Is Int.vi" Type="VI" URL="../Is Int.vi"/>
+		<Item Name="Add Folder.vi" Type="VI" URL="../Add Folder.vi"/>
+		<Item Name="Add Tool From Dialog.vi" Type="VI" URL="../Add Tool From Dialog.vi"/>
+		<Item Name="Get Python Code.vi" Type="VI" URL="../Get Python Code.vi"/>
+		<Item Name="Load Config.vi" Type="VI" URL="../Load Config.vi"/>
+		<Item Name="Save Config.vi" Type="VI" URL="../Save Config.vi"/>
+		<Item Name="Delete Tools.vi" Type="VI" URL="../Delete Tools.vi"/>
 		<Item Name="Is String.vi" Type="VI" URL="../Is String.vi"/>
 		<Item Name="Load VI.vi" Type="VI" URL="../../Scripting Server/Load VI.vi"/>
 		<Item Name="PyServer.lvclass" Type="LVClass" URL="../PyServer/PyServer.lvclass"/>
+		<Item Name="PyTool.lvclass" Type="LVClass" URL="../PyTool/PyTool.lvclass"/>
 	</Item>
-	<Item Name="Get Python Code.vi" Type="VI" URL="../Get Python Code.vi"/>
 	<Item Name="Install Server.vi" Type="VI" URL="../Install Server.vi"/>
 	<Item Name="Update MCP Server.vi" Type="VI" URL="../Update MCP Server.vi"/>
 </Library>
