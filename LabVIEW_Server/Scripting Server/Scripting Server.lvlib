@@ -106,6 +106,7 @@
 				<Item Name="get_structure_diagram.vi" Type="VI" URL="../get_structure_diagram.vi"/>
 				<Item Name="get_allowed_paths.vi" Type="VI" URL="../get_allowed_paths.vi"/>
 				<Item Name="create_project.vi" Type="VI" URL="../create_project.vi"/>
+				<Item Name="open_vi.vi" Type="VI" URL="../open_vi.vi"/>
 			</Item>
 			<Item Name="Show Panel.vi" Type="VI" URL="../Show Panel.vi"/>
 			<Item Name="Hide Panel.vi" Type="VI" URL="../Hide Panel.vi"/>
@@ -114,7 +115,6 @@
 			<Item Name="Show Diagram.vi" Type="VI" URL="../Show Diagram.vi"/>
 			<Item Name="Read Config Data.vi" Type="VI" URL="../Read Config Data.vi"/>
 			<Item Name="Set Allowed Paths.vi" Type="VI" URL="../Set Allowed Paths.vi"/>
-			<Item Name="open_vi.vi" Type="VI" URL="../open_vi.vi"/>
 		</Item>
 		<Item Name="Start Module.vi" Type="VI" URL="../Start Module.vi"/>
 		<Item Name="Synchronize Module Events.vi" Type="VI" URL="../Synchronize Module Events.vi"/>
